@@ -1,7 +1,7 @@
 # LearnQuest – Joc educativ 2D realizat în Godot
 
 ## 🧠 Descriere generală
-**LearnQuest** este un joc educativ 2D destinat elevilor din ciclul gimnazial, dezvoltat în motorul Godot 4.4.1. Scopul jocului este de a îmbina învățarea cu distracția, printr-o serie de provocări interactive într-un mediu prietenos.
+**LearnQuest** este un joc educativ 2D destinat elevilor din ciclul gimnazial, dezvoltat progresiv în motorul Godot 4.4.1. Scopul jocului este de a îmbina învățarea cu distracția, printr-o serie de provocări interactive într-un mediu prietenos.
 
 ## 📁 Repository
 Codul sursă complet al proiectului este disponibil în acest repository:  
