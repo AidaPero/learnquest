@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dknop8ooccj5h"]
+
+[ext_resource type="Script" uid="uid://bjgxf53o3k58b" path="res://scenes/music/background_music.gd" id="1_52y72"]
+[ext_resource type="AudioStream" uid="uid://ki6knc3i7vtl" path="res://sounds/Ambient 3.wav" id="1_ds3or"]
+[ext_resource type="AudioStream" uid="uid://cd78nwonmpexm" path="res://sounds/click1.ogg" id="3_yo62q"]
+
+[node name="BackgroundMusic" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_52y72")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ds3or")
+autoplay = true
+
+[node name="UISoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yo62q")
+volume_db = -10.0

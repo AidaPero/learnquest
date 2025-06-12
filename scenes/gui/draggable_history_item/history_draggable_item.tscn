@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhoae7h0d138q"]
+
+[ext_resource type="Script" uid="uid://bu2mav1ukjyd6" path="res://scenes/gui/draggable_history_item/history_draggable_item.gd" id="1_3plbk"]
+[ext_resource type="Texture2D" uid="uid://bulfowvi0so1y" path="res://assets/images/cf838f2c826bb944a34078045d992311.jpg" id="1_by8y5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3plbk"]
+font_size = 28
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 2)
+
+[node name="HistoryDraggableItem" type="Node2D"]
+script = ExtResource("1_3plbk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(200, 350)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -175.0
+offset_right = 100.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_by8y5")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(200, 350)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.435192, 0.435192, 0.435192, 1)
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 350)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Unification of Upper & Lower Egypt"
+label_settings = SubResource("LabelSettings_3plbk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

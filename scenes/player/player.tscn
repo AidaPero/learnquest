@@ -1,0 +1,255 @@
+[gd_scene load_steps=20 format=3 uid="uid://cjov3ov1qu0b1"]
+
+[ext_resource type="Script" uid="uid://miglrfd24bio" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://3cf8gnfd14ny" path="res://assets/characters/Pawn_Blue.png" id="3_gmlin"]
+[ext_resource type="FontFile" uid="uid://clviw2sxh8aup" path="res://fonts/KnightWarrior-w16n8.otf" id="3_lvxji"]
+[ext_resource type="AudioStream" uid="uid://bkf2qjgry8qwm" path="res://sounds/running-on-gravel-301880.mp3" id="4_lvxji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(30, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
+radius = 31.4006
+
+[sub_resource type="LabelSettings" id="LabelSettings_dovo2"]
+font = ExtResource("3_lvxji")
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="Animation" id="Animation_dovo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+resource_name = "move_down"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmlin"]
+resource_name = "move_up"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.48),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvxji"]
+_data = {
+&"RESET": SubResource("Animation_dovo2"),
+&"move_down": SubResource("Animation_lvxji"),
+&"move_up": SubResource("Animation_gmlin")
+}
+
+[sub_resource type="Animation" id="Animation_75vfm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p47bc"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100311, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_0owmy"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
+_data = {
+&"RESET": SubResource("Animation_75vfm"),
+&"idle": SubResource("Animation_p47bc"),
+&"run": SubResource("Animation_0owmy")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dovo2"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gmlin"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvxji"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_p47bc"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_dovo2")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_gmlin")
+blend_point_1/pos = 0.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_lvxji")
+blend_point_2/pos = 1.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
+script = ExtResource("1_dovo2")
+speed = 300.0
+
+[node name="Character" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("3_gmlin")
+hframes = 6
+vframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PinAreaDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinAreaDetector"]
+shape = SubResource("CircleShape2D_dovo2")
+
+[node name="InteractiveNode" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+z_index = 1
+
+[node name="Label" type="Label" parent="InteractiveNode"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+label_settings = SubResource("LabelSettings_dovo2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InteractiveNode"]
+libraries = {
+&"": SubResource("AnimationLibrary_lvxji")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0owmy")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendSpace1D_p47bc")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = 0.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lvxji")
+volume_db = -20.0
+
+[connection signal="area_entered" from="PinAreaDetector" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="PinAreaDetector" to="." method="_on_area_2d_area_exited"]

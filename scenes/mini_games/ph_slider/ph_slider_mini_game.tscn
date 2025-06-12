@@ -1,0 +1,336 @@
+[gd_scene load_steps=20 format=3 uid="uid://dad2hv6nxp1qm"]
+
+[ext_resource type="Script" uid="uid://cp5stm1arwvm0" path="res://scenes/mini_games/ph_slider/ph_slider_mini_game.gd" id="1_ifhsb"]
+[ext_resource type="Texture2D" uid="uid://bt0os6wfs47hk" path="res://assets/images/8d421f147ce999e7bd2dd1946b6ee1e6.jpg" id="2_rxymc"]
+[ext_resource type="Texture2D" uid="uid://b24n1oappo8qg" path="res://assets/gui/Button_Blue_3Slides.png" id="3_m58vx"]
+[ext_resource type="FontFile" uid="uid://dhwionra2y06i" path="res://fonts/LA TRUITE A PAPA.ttf" id="3_uluol"]
+[ext_resource type="Texture2D" uid="uid://c3343mi3tfenq" path="res://assets/gui/Button_Blue_3Slides_Pressed.png" id="4_cc3ab"]
+[ext_resource type="FontFile" uid="uid://clviw2sxh8aup" path="res://fonts/KnightWarrior-w16n8.otf" id="5_p5xb7"]
+[ext_resource type="Texture2D" uid="uid://b4iy784780g73" path="res://assets/gui/face_on_cross.png" id="7_cc3ab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuvxy"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 0.72549)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxymc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rxymc"]
+font = ExtResource("3_uluol")
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_db1h3"]
+texture = ExtResource("3_m58vx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8u4q1"]
+texture = ExtResource("4_cc3ab")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbnm7"]
+font = ExtResource("5_p5xb7")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m58vx"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_p5xb7"]
+font = ExtResource("5_p5xb7")
+font_size = 48
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m58vx"]
+font = ExtResource("3_uluol")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uluol"]
+font = ExtResource("3_uluol")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vuvxy"]
+font = ExtResource("3_uluol")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cc3ab"]
+font = ExtResource("3_uluol")
+font_size = 100
+outline_size = 21
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 10)
+
+[node name="PhSliderMiniGame" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ifhsb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vuvxy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.447059)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(1160, 480)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rxymc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "how to play:: adjust the ph slider until the water is perfectly neutral"
+label_settings = SubResource("LabelSettings_rxymc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Button3" type="Button" parent="CenterContainer/Panel/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_db1h3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_db1h3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8u4q1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_db1h3")
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/HBoxContainer/HBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -37.5
+offset_right = 54.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CHECK"
+label_settings = SubResource("LabelSettings_vbnm7")
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="CenterContainer/Panel/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_db1h3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_db1h3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8u4q1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_db1h3")
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/HBoxContainer/HBoxContainer/Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -37.5
+offset_right = 54.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+label_settings = SubResource("LabelSettings_vbnm7")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Image" type="Panel" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1100, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m58vx")
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Image"]
+modulate = Color(1, 0, 0.305882, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rxymc")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CheckPopup" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Image"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -32.5
+offset_right = 94.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 32)
+theme_override_constants/separation = 13
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Image/CheckPopup"]
+layout_mode = 2
+text = "INCORRECT"
+label_settings = SubResource("LabelSettings_p5xb7")
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Image/CheckPopup"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("7_cc3ab")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "0.0"
+label_settings = SubResource("LabelSettings_m58vx")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0.0 (very acidic) "
+label_settings = SubResource("LabelSettings_uluol")
+uppercase = true
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 14.0
+
+[node name="Label2" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "14.0 (very basic)"
+label_settings = SubResource("LabelSettings_vuvxy")
+uppercase = true
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.0
+offset_top = -88.0
+offset_right = 209.0
+offset_bottom = 12.0
+grow_horizontal = 2
+text = "Lake Illustration"
+label_settings = SubResource("LabelSettings_cc3ab")
+horizontal_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

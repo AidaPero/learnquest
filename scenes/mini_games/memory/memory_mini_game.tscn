@@ -1,0 +1,216 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvmk3jdyhdfl7"]
+
+[ext_resource type="Script" uid="uid://l5oxoql371tq" path="res://scenes/mini_games/memory/memory_mini_game.gd" id="1_mo3w7"]
+[ext_resource type="Texture2D" uid="uid://cddxd7bt4cnoa" path="res://assets/images/e627ecb1d28f142c5494219142d793d0.jpg" id="2_l83m2"]
+[ext_resource type="FontFile" uid="uid://dhwionra2y06i" path="res://fonts/LA TRUITE A PAPA.ttf" id="2_x252x"]
+[ext_resource type="Texture2D" uid="uid://b24n1oappo8qg" path="res://assets/gui/Button_Blue_3Slides.png" id="3_l83m2"]
+[ext_resource type="PackedScene" uid="uid://c2qn301rg25uc" path="res://scenes/gui/memory_game_card_panel/memory_game_card_panel.tscn" id="5_mo3w7"]
+[ext_resource type="FontFile" uid="uid://clviw2sxh8aup" path="res://fonts/KnightWarrior-w16n8.otf" id="5_qymih"]
+[ext_resource type="PackedScene" uid="uid://bhoae7h0d138q" path="res://scenes/gui/draggable_history_item/history_draggable_item.tscn" id="8_qymih"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em2ah"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 0.72549)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crlql"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tl88c"]
+font = ExtResource("2_x252x")
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_odhwk"]
+texture = ExtResource("3_l83m2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_c35du"]
+font = ExtResource("5_qymih")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bn4s1"]
+font = ExtResource("2_x252x")
+font_size = 100
+outline_size = 21
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 10)
+
+[node name="MemoryMiniGame" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mo3w7")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l83m2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_em2ah")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(1160, 480)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_crlql")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 6.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "how to play:: pick the earliest event to the latest ( drag images to reposition them )"
+label_settings = SubResource("LabelSettings_tl88c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Button2" type="Button" parent="CenterContainer/Panel/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_odhwk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_odhwk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_odhwk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_odhwk")
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/HBoxContainer/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -37.5
+offset_right = 51.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+label_settings = SubResource("LabelSettings_c35du")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -9
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="GridContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="Panel" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel2" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel3" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel4" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel5" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel6" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel7" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel8" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel9" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Panel10" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("5_mo3w7")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -207.5
+offset_top = -72.0
+offset_right = 207.5
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "MEMORIZE"
+label_settings = SubResource("LabelSettings_bn4s1")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HistoryDraggableItem" parent="." instance=ExtResource("8_qymih")]
+visible = false
+
+[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

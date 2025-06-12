@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3eodilj1xpmc"]
+
+[ext_resource type="Texture2D" uid="uid://ue72g5fxqyrq" path="res://assets/ribbons/Ribbon_Red_Connection_Left.png" id="1_epyle"]
+[ext_resource type="Script" uid="uid://dkn574g7unkla" path="res://scenes/gui/hud/hud.gd" id="1_n1roc"]
+[ext_resource type="Texture2D" uid="uid://lwtpcixy10fa" path="res://assets/resources/UI board Small  parchment.png" id="2_epyle"]
+[ext_resource type="Texture2D" uid="uid://b1476xckqe8x7" path="res://assets/gui/face_on_star.png" id="3_sw720"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajapw"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n1roc")
+
+[node name="RibbonRedConnectionLeft" type="Sprite2D" parent="."]
+position = Vector2(293, 59)
+texture = ExtResource("1_epyle")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 298.0
+offset_bottom = 104.0
+texture = ExtResource("2_epyle")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 277.0
+offset_bottom = 108.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "* Find Treasures in the village"
+label_settings = SubResource("LabelSettings_ajapw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label3" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "* Collect all stars"
+label_settings = SubResource("LabelSettings_ajapw")
+
+[node name="Label2" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = " (0/4)"
+label_settings = SubResource("LabelSettings_ajapw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_sw720")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_sw720")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_sw720")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_sw720")
+expand_mode = 1

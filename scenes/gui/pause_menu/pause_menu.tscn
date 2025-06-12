@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://b6xlhh4ijfkyb"]
+
+[ext_resource type="Script" uid="uid://u2y38bm8kq6j" path="res://scenes/gui/pause_menu/pause_menu.gd" id="1_njkny"]
+[ext_resource type="Texture2D" uid="uid://b24n1oappo8qg" path="res://assets/gui/Button_Blue_3Slides.png" id="2_oc3hw"]
+[ext_resource type="FontFile" uid="uid://clviw2sxh8aup" path="res://fonts/KnightWarrior-w16n8.otf" id="3_3dfgs"]
+[ext_resource type="Texture2D" uid="uid://c3343mi3tfenq" path="res://assets/gui/Button_Blue_3Slides_Pressed.png" id="3_xr8m2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xr8m2"]
+texture = ExtResource("2_oc3hw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eayoq"]
+texture = ExtResource("3_xr8m2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_eayoq"]
+font = ExtResource("3_3dfgs")
+font_size = 56
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cnsw5"]
+texture = ExtResource("2_oc3hw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7q5pc"]
+texture = ExtResource("3_xr8m2")
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_njkny")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0156863, 0.0156863, 0.388235)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_xr8m2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xr8m2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_eayoq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xr8m2")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ContinueButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -45.5
+offset_right = 51.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONTINUE"
+label_settings = SubResource("LabelSettings_eayoq")
+horizontal_alignment = 1
+
+[node name="HomeButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_cnsw5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cnsw5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7q5pc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cnsw5")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HomeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -45.5
+offset_right = 51.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "HOME"
+label_settings = SubResource("LabelSettings_eayoq")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]

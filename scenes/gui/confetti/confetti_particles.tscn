@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqmmdja0ghi6b"]
+
+[ext_resource type="Texture2D" uid="uid://xstp6oau2d66" path="res://assets/images/confetti.png" id="1_j0myw"]
+[ext_resource type="Script" uid="uid://cw8swbmrmsnho" path="res://scenes/gui/confetti/confetti_particles.gd" id="2_x58xv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_db1h3"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(700, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 91.95
+initial_velocity_max = 439.65
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.8
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="ConfettiParticles" type="GPUParticles2D"]
+process_mode = 3
+emitting = false
+amount = 300
+texture = ExtResource("1_j0myw")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_db1h3")
+script = ExtResource("2_x58xv")

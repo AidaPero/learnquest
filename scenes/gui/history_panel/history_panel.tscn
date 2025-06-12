@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5k8r6ver3fkw"]
+
+[ext_resource type="Script" uid="uid://cenx7av8ybrj3" path="res://scenes/mini_games/history/history_panel.gd" id="1_he2tt"]
+[ext_resource type="Texture2D" uid="uid://d0qxdo7kuthd8" path="res://assets/images/8ca491d783ca90df0e8983276f81c929.jpg" id="2_mjjwm"]
+[ext_resource type="Texture2D" uid="uid://b4iy784780g73" path="res://assets/gui/face_on_cross.png" id="3_j2nyc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfhd1"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_he2tt"]
+font_size = 28
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 2)
+
+[node name="Button" type="Panel"]
+custom_minimum_size = Vector2(200, 350)
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfhd1")
+script = ExtResource("1_he2tt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.435192, 0.435192, 0.435192, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_mjjwm")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CheckPopup" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = -32.0
+offset_right = 12.0
+offset_bottom = 28.0
+grow_horizontal = 0
+pivot_offset = Vector2(94, 32)
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="CheckPopup"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("3_j2nyc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Unification of Upper & Lower Egypt"
+label_settings = SubResource("LabelSettings_he2tt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

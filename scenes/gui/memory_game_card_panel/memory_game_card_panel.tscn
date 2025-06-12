@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2qn301rg25uc"]
+
+[ext_resource type="Texture2D" uid="uid://puojkftg8vdf" path="res://assets/cards/back01.png" id="1_i0m3o"]
+[ext_resource type="Script" uid="uid://dfawa1ym0ty2k" path="res://scenes/gui/memory_game_card_panel/memory_game_card_panel.gd" id="1_w1kqw"]
+[ext_resource type="Texture2D" uid="uid://d1nf67lwkrvbg" path="res://assets/cards/clubs_02.png" id="2_d1454"]
+[ext_resource type="Texture2D" uid="uid://b4iy784780g73" path="res://assets/gui/face_on_cross.png" id="4_pit0s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oi0km"]
+
+[sub_resource type="Animation" id="Animation_w1kqw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Back:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d1454"]
+resource_name = "show_back"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1e-05, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Back:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333334, 0.533333, 0.983333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Back:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.517823),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("Front:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.522488),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1kqw"]
+_data = {
+&"RESET": SubResource("Animation_w1kqw"),
+&"show_back": SubResource("Animation_d1454")
+}
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(140, 200)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oi0km")
+script = ExtResource("1_w1kqw")
+
+[node name="Back" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1)
+pivot_offset = Vector2(70, 100)
+texture = ExtResource("1_i0m3o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Front" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(70, 100)
+texture = ExtResource("2_d1454")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w1kqw")
+}
+speed_scale = 2.0
+
+[node name="CheckPopup" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = -32.0
+offset_right = 12.0
+offset_bottom = 28.0
+grow_horizontal = 0
+pivot_offset = Vector2(94, 32)
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="CheckPopup"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("4_pit0s")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

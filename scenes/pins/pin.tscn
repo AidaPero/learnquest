@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3lvu5ijyewir"]
+
+[ext_resource type="Script" uid="uid://b62bygqjp6pm" path="res://scenes/pins/pin.gd" id="1_plyby"]
+[ext_resource type="Texture2D" uid="uid://drx88m80kfpba" path="res://assets/resources/props_grasschest_closed.png" id="2_eh7md"]
+[ext_resource type="Texture2D" uid="uid://j71yrx5nc6xg" path="res://assets/tiles/Shadows.png" id="2_gww8h"]
+[ext_resource type="PackedScene" uid="uid://bnrahf1cnkog6" path="res://scenes/gui/highlighter/highlighter.tscn" id="3_oyaqf"]
+[ext_resource type="Texture2D" uid="uid://cr4pkhhtku7tb" path="res://assets/images/location-red-pin-sign-15629.png" id="5_41b0n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbw0w"]
+radius = 63.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh7md"]
+size = Vector2(38, 15)
+
+[sub_resource type="Animation" id="Animation_l407x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Sprite2D2:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_doixs"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(-2, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Sprite2D2:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.01699),
+"transitions": PackedFloat32Array(-2, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5csa2"]
+_data = {
+&"RESET": SubResource("Animation_l407x"),
+&"move": SubResource("Animation_doixs")
+}
+
+[node name="Pin" type="Area2D" groups=["pin"]]
+script = ExtResource("1_plyby")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(0, 9)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_gww8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dbw0w")
+
+[node name="PropsGrasschestClosed" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_eh7md")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_eh7md")
+
+[node name="Highlighter" parent="." instance=ExtResource("3_oyaqf")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -88)
+texture = ExtResource("5_41b0n")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_41b0n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5csa2")
+}
+autoplay = "move"
