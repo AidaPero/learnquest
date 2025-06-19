@@ -5,7 +5,7 @@
 
 ##  Repository
 Codul sursă complet al proiectului este disponibil în acest repository:  
-🔗 [https://github.com/AidaPero/learnquest](https://github.com/AidaPero/learnquest)
+ [https://github.com/AidaPero/learnquest](https://github.com/AidaPero/learnquest)
 
  Acest repository **nu conține fișiere binare** (ex. `.exe`, `.pck`), ci doar codul sursă și resursele jocului.
 
@@ -31,7 +31,7 @@ Codul sursă complet al proiectului este disponibil în acest repository:
 ### Opțiunea 2 – Rulare versiune exportată
 
 1. Descarcă arhiva cu jocul exportat (`LearnQuest.zip`) de aici:  
-   🔗 [https://github.com/AidaPero/learnquest/releases/download/v1.0/LearnQuest.zip](https://github.com/AidaPero/learnquest/releases/download/v1.0/LearnQuest.zip)
+    [https://github.com/AidaPero/learnquest/releases/download/v1.0/LearnQuest.zip](https://github.com/AidaPero/learnquest/releases/download/v1.0/LearnQuest.zip)
 
 2. Dezarhivează fișierul
 
