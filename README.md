@@ -5,14 +5,14 @@
 
 ##  Repository
 Codul sursă complet al proiectului este disponibil în acest repository:  
- [https://github.com/AidaPero/learnquest](https://github.com/AidaPero/learnquest)
+ https://github.com/AidaPero/learnquest
 
  Acest repository conține doar codul sursă și resursele jocului, fără fișiere binare (ex. .exe, .pck).
 
 ##  Pași pentru compilare (export)
 
 1. Descarcă și instalează Godot 4.4.1:  
-    [https://godotengine.org/download](https://godotengine.org/download)
+    https://godotengine.org/download
 2. Deschide proiectul (`project.godot`) în Godot.
 3. Mergi la `Project` → `Export`.
 4. Alege platforma dorită (ex: Windows).
@@ -31,7 +31,7 @@ Codul sursă complet al proiectului este disponibil în acest repository:
 ### Opțiunea 2 – Rulare versiune exportată
 
 1. Descarcă arhiva cu jocul exportat (`LearnQuest.zip`) de aici:  
-    [https://github.com/AidaPero/learnquest/releases/download/v1.0/LearnQuest.zip](https://github.com/AidaPero/learnquest/releases/download/v1.0/LearnQuest.zip)
+    https://github.com/AidaPero/learnquest/releases/download/v1.0/LearnQuest.zip
 
 2. Dezarhivează fișierul
 
