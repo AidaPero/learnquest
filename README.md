@@ -7,7 +7,7 @@
 Codul sursă complet al proiectului este disponibil în acest repository:  
  [https://github.com/AidaPero/learnquest](https://github.com/AidaPero/learnquest)
 
- Acest repository **nu conține fișiere binare** (ex. `.exe`, `.pck`), ci doar codul sursă și resursele jocului.
+ Acest repository conține doar codul sursă și resursele jocului, fără fișiere binare (ex. .exe, .pck).
 
 ##  Pași pentru compilare (export)
 
